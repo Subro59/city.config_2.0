@@ -211,14 +211,14 @@
                     </div>
 
                     <div>
-                        <label class="block text-slate-400 mb-1 text-[11px] font-medium">DBA Name Column <span class="text-rose-400">*</span></label>
+                        <label class="block text-slate-400 mb-1 text-[11px] font-medium">DBA Name Column <span class="text-rose-400">*</span> (Max 21 chars)</label>
                         <select id="colEntityName" onchange="reprocessData()" class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-brand-500 font-mono">
                             <option value="">-- Select --</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-slate-400 mb-1 text-[11px] font-medium">Address Column <span class="text-rose-400">*</span></label>
+                        <label class="block text-slate-400 mb-1 text-[11px] font-medium">Address Column <span class="text-rose-400">*</span> (Max 29 chars)</label>
                         <select id="colAddress" onchange="reprocessData()" class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-brand-500 font-mono">
                             <option value="">-- Select --</option>
                         </select>
@@ -412,10 +412,10 @@
 
     <script>
         let MERCHANT_TEMPLATE = `HDT:TID=(tid):MID=(mid):1:1:1:0100:050:050:TK:115:90:100:6001000000
-TCT:ADDR1(36)=(address1):ADDR2(36)=(address2):ADDR3(36)=(address3):ADDR4(36)=(address4):ADDR5(36)=(address5):MERCHANTNAME1(24)=(dbaname1):MERCHANTNAME2(28)=(dbaname2):2489:0000:0000:0000:0000:24896925
+TCT:ADDR1(29)=(address1):ADDR2(29)=(address2):ADDR3(29)=(address3):ADDR4(29)=(address4):ADDR5(29)=(address5):MERCHANTNAME1(21)=(dbaname1):MERCHANTNAME2(21)=(dbaname2):2489:0000:0000:0000:0000:24896925
 SUPPORTBIN:ENGINEERNAME=xx:ENGINEERMOBILE=xx:OFFICERNAME=xx:OFFICERMOBILE=xx:EMAIL=test.city@citybank.com
 SIMBIN:(simbin)
-IPBIN:IP1=192.168.95.7, IP2=192.168.95.8:IP1=192.168.95.102, IP2=192.168.95.103:IP1=192.168.94.251, IP2=192.168.94.252:IP1=172.31.1.43, IP2=172.31.1.43:PORT1=2400, PORT2=2450:PORT1=2400, PORT2=2450:PORT1=2400, PORT2=2450:PORT1=2400, PORT2=2450
+IPBIN:IP1=192.168.95.7,IP2=192.168.95.8:IP1=192.168.95.102,IP2=192.168.95.103:IP1=192.168.94.251,IP2=192.168.94.252:IP1=172.31.1.43,IP2=172.31.1.43:PORT1=2400,PORT2=2450:PORT1=2400,PORT2=2450:PORT1=2400,PORT2=2450:PORT1=2400,PORT2=2450
 TXN:SALE=1:VOID=1:QRSALE=0:MICRO ATM=0:EMI=(emiStatus):LOUNGE ACCESS=0:PREAUTH=0:TIPADJUST=0:TIPADJUSTOFF=0:TIPADJUSTON=0:TIPWITHSALE=0:SETTLEMENT=1:BALANCE=0:REFUND=0:SHOWTXN=0:LOGON=1:TRAFFIC ENCRYPTION=1:SALECOMP=0:SALECOMPOFF=0:SALECOMPON=0:OFFLINE=0:REPORT=1:TXN HISTORY=0
 MRT:SALE:VOID:MICRO ATM:EMI SALE:BATCH REPORT+:REPRINT:SETTLEMENT:LOGON:LOUNGE ACCESS:PREAUTH:SHOWTXN:TIPADJUST:BALANCEINQ:CANCELLATION:ADMIN:SETTING
 PMTTYP:CHIP=1:NFC=1:MICRO ATM NFC=0:MAG=1:SALEMANUAL=0:EMI MANUAL=0:LOUNGE ACCESS MANUAL=0:MICRO ATM MANUAL=0:PREAUTHMANUAL=0:FALLBACK=0:LAST4DIGIT=0:CVV2INPUT=0
@@ -425,37 +425,37 @@ SLIPPRINT:MERCHANTCOPY=1:CUSTOMERCOPY=0:LOGON=1:CARDDETAILSREPORT=0:SETTLEDETAIL
 PRINTLOGO:BANKLOGO=1:MERCHANTLOGO=0
 EXPMASKING:EXPMASKMC=0:EXPMASKCC=0:EXPMASKDT=0:EXPMASKPREAUTH=0:EXPMASKDISP=0:EXPMASKSHOWTXN=0:EXPMASKEMI=0:EXPMASKERRRP=0
 PANMASKING:PANMASKMC=1:PANMASKCC=0:PANMASKDT=1:PANMASKPREAUTH=1:PANMASKDISP=1:PANMASKSHOWTXN=1:PANMASKEMI=1:PANMASKERRRP=1
-EMIBIN:4748670000000000, 4748679999999999, 16:4097650000000000, 4097650099999999, 16:300000000000000, 399999999999999, 15
-LOUNGEBIN:4748670000000000, 4748679999999999, 16:4097650000000000, 4097650099999999, 16:300000000000000, 399999999999999, 15
-MICROATMBIN:5175550000000000, 5175559999999999, 16:5195070000000000, 5195079999999999, 16:5286310000000000, 5286319999999999, 16:4105200000000000, 4105209999999999, 16:300000000000000, 399999999999999, 15:6291104200000000, 6291104299999999, 16:6399960200000000, 6399960299999999, 16
-PRINTBIN:300000000000000, 399999999999999, 15:4105200000000000, 4105209999999999, 16:4748670000000000, 4748679999999999, 16
-BINWISELIMIT:0001:99999999:5483210000000000, 5483219999999999, 16:4391310000000000, 4391319999999999, 16:4097650000000000, 4097650099999999, 16:5196250000000000, 5196259999999999, 16:5300030000000000, 5300039999999999, 16
-CDT0:400000000000:499999999999:12, 13, 14, 15, 16, 17, 18, 19:VISA:11111111111
-CDT1:410520000000:410520999999:12, 13, 14, 15, 16, 17, 18, 19:VISA:11111111111
-CDT2:474867000000:474867999999:12, 13, 14, 15, 16, 17, 18, 19:VISA:11111111111
-CDT3:409765000000:409765009999:12, 13, 14, 15, 16, 17, 18, 19:VISA:11111111111
-CDT4:500000000000:599999999999:12, 13, 14, 15, 16, 17, 18, 19:MASTERCARD:11111111111
-CDT5:519625000000:519625999999:12, 13, 14, 15, 16, 17, 18, 19:MASTERCARD:11111111111
-CDT6:530003000000:530003999999:12, 13, 14, 15, 16, 17, 18, 19:MASTERCARD:11111111111
-CDT7:517555000000:517555999999:12, 13, 14, 15, 16, 17, 18, 19:MASTERCARD:11111111111
-CDT8:519507000000:519507999999:12, 13, 14, 15, 16, 17, 18, 19:MASTERCARD:11111111111
-CDT9:528631000000:528631999999:12, 13, 14, 15, 16, 17, 18, 19:MASTERCARD:11111111111
-CDT10:222100000000:272099999999:12, 13, 14, 15, 16, 17, 18, 19:MASTERCARD:11111111111
-CDT11:100000000000:199999999999:12, 13, 14, 15, 16, 17, 18, 19:NPSB:1110111111011
-CDT12:900000000000:999999999999:12, 13, 14, 15, 16, 17, 18, 19:NPSB:1110111111011
-CDT13:700000000000:799999999999:12, 13, 14, 15, 16, 17, 18, 19:NPSB:1110111111011
-CDT14:600000000000:699999999999:12, 13, 14, 15, 16, 17, 18, 19:UPI:11111111111
-CDT15:629110420000:629110429999:12, 13, 14, 15, 16, 17, 18, 19:UPI:11111111111
-CDT16:800000000000:899999999999:12, 13, 14, 15, 16, 17, 18, 19:UPI:11111111111
-CDT17:300000000000:399999999999:12, 13, 14, 15, 16, 17, 18, 19:AMEX:11111111111
-CDT18:376947000000:376947999999:12, 13, 14, 15, 16, 17, 18, 19:AMEX:11111111111
-CDT19:376948000000:376948999999:12, 13, 14, 15, 16, 17, 18, 19:AMEX:11111111111
-CDT20:376949000000:376949999999:12, 13, 14, 15, 16, 17, 18, 19:AMEX:11111111111
-CDT21:371598000000:371598999999:12, 13, 14, 15, 16, 17, 18, 19:AMEX:11111111111
-CDT22:371599000000:371599999999:12, 13, 14, 15, 16, 17, 18, 19:AMEX:11111111111
-CDT23:379848000000:379848999999:12, 13, 14, 15, 16, 17, 18, 19:AMEX:11111111111
-CDT24:639996000000:639996809999:12, 13, 14, 15, 16, 17, 18, 19:TAKAPAY:11111111111
-CDT25:639996020000:639996029999:12, 13, 14, 15, 16, 17, 18, 19:CITY TAKAPAY:11111111111
+EMIBIN:4748670000000000,4748679999999999,16:4097650000000000,4097650099999999,16:300000000000000,399999999999999,15
+LOUNGEBIN:4748670000000000,4748679999999999,16:4097650000000000,4097650099999999,16:300000000000000,399999999999999,15
+MICROATMBIN:5175550000000000,5175559999999999,16:5195070000000000,5195079999999999,16:5286310000000000,5286319999999999,16:4105200000000000,4105209999999999,16:300000000000000,399999999999999,15:6291104200000000,6291104299999999,16:6399960200000000,6399960299999999,16
+PRINTBIN:300000000000000,399999999999999,15:4105200000000000,4105209999999999,16:4748670000000000,4748679999999999,16
+BINWISELIMIT:0001:99999999:5483210000000000,5483219999999999,16:4391310000000000,4391319999999999,16:4097650000000000,4097650099999999,16:5196250000000000,5196259999999999,16:5300030000000000,5300039999999999,16
+CDT0:400000000000:499999999999:12,13,14,15,16,17,18,19:VISA:11111111111
+CDT1:410520000000:410520999999:12,13,14,15,16,17,18,19:VISA:11111111111
+CDT2:474867000000:474867999999:12,13,14,15,16,17,18,19:VISA:11111111111
+CDT3:409765000000:409765009999:12,13,14,15,16,17,18,19:VISA:11111111111
+CDT4:500000000000:599999999999:12,13,14,15,16,17,18,19:MASTERCARD:11111111111
+CDT5:519625000000:519625999999:12,13,14,15,16,17,18,19:MASTERCARD:11111111111
+CDT6:530003000000:530003999999:12,13,14,15,16,17,18,19:MASTERCARD:11111111111
+CDT7:517555000000:517555999999:12,13,14,15,16,17,18,19:MASTERCARD:11111111111
+CDT8:519507000000:519507999999:12,13,14,15,16,17,18,19:MASTERCARD:11111111111
+CDT9:528631000000:528631999999:12,13,14,15,16,17,18,19:MASTERCARD:11111111111
+CDT10:222100000000:272099999999:12,13,14,15,16,17,18,19:MASTERCARD:11111111111
+CDT11:100000000000:199999999999:12,13,14,15,16,17,18,19:NPSB:1110111111011
+CDT12:900000000000:999999999999:12,13,14,15,16,17,18,19:NPSB:1110111111011
+CDT13:700000000000:799999999999:12,13,14,15,16,17,18,19:NPSB:1110111111011
+CDT14:600000000000:699999999999:12,13,14,15,16,17,18,19:UPI:11111111111
+CDT15:629110420000:629110429999:12,13,14,15,16,17,18,19:UPI:11111111111
+CDT16:800000000000:899999999999:12,13,14,15,16,17,18,19:UPI:11111111111
+CDT17:300000000000:399999999999:12,13,14,15,16,17,18,19:AMEX:11111111111
+CDT18:376947000000:376947999999:12,13,14,15,16,17,18,19:AMEX:11111111111
+CDT19:376948000000:376948999999:12,13,14,15,16,17,18,19:AMEX:11111111111
+CDT20:376949000000:376949999999:12,13,14,15,16,17,18,19:AMEX:11111111111
+CDT21:371598000000:371598999999:12,13,14,15,16,17,18,19:AMEX:11111111111
+CDT22:371599000000:371599999999:12,13,14,15,16,17,18,19:AMEX:11111111111
+CDT23:379848000000:379848999999:12,13,14,15,16,17,18,19:AMEX:11111111111
+CDT24:639996000000:639996809999:12,13,14,15,16,17,18,19:TAKAPAY:11111111111
+CDT25:639996020000:639996029999:12,13,14,15,16,17,18,19:CITY TAKAPAY:11111111111
 EDT0:A0000000031010:VSDC:0010000000:D84004F800:D84000A800:000000:500001:99999999
 EDT1:A0000000032010:VISA ELECT:0010000000:D84004F800:D84000A800:000000:500001:99999999
 EDT2:A0000000033010:VISA INTERLINK:0010000000:D84004F800:D84000A800:000000:500001:99999999
@@ -764,11 +764,11 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
         function loadDemoData() {
             const demoHeaders = ["TID", "MID", "DBA Name", "Address", "SIM CARRIER"];
             const demoRows = [
-                ["20002421", "4700019283", "BASHUNDHARA SHOPPING COMPLEX OUTLET MEGA", "STORE DHAKA LEVEL 4 BLOCK C SHOP 42 BASHUNDHARA CITY DHAKA 1215", "BANGLALINK"],
-                ["20002194", "4700018820", "JAMUNA FUTURE PARK BRAND SHOWROOM", "KA-244 PROGRESS TOWER KURIL KAWRAN BAZAR DHAKA", "GRAMEENPHONE"],
-                ["20003011", "4700020101", "UTTARA SECTOR 3 COMMERCIAL STORE", "HOUSE 12 ROAD 7 SECTOR 3 UTTARA MODEL TOWN DHAKA", "ROBI"],
-                ["20003055", "4700020489", "GULSHAN AVENUE SUPERMARKET STORE", "PLOT 45 GULSHAN AVENUE CIRCLE 2 DHAKA 1212", "BANGLALINK"],
-                ["20004112", "4700021890", "SYLHET ZINDA BAZAR FASHION HUB", "MAIN ROAD ZINDA BAZAR SYLHET 3100", "BANGLALINK"]
+                ["20002421", "4700019283", "BASHUNDHARA SHOPPING COMPLEX, OUTLET MEGA", "STORE, DHAKA LEVEL 4, BLOCK C, SHOP 42, BASHUNDHARA CITY, DHAKA 1215", "BANGLALINK"],
+                ["20002194", "4700018820", "JAMUNA FUTURE PARK - BRAND SHOWROOM", "KA-244 PROGRESS TOWER - KURIL, KAWRAN BAZAR, DHAKA", "GRAMEENPHONE"],
+                ["20003011", "4700020101", "UTTARA SECTOR 3, COMMERCIAL STORE", "HOUSE 12, ROAD 7, SECTOR 3, UTTARA MODEL TOWN, DHAKA", "ROBI"],
+                ["20003055", "4700020489", "GULSHAN AVENUE, SUPERMARKET STORE", "PLOT 45, GULSHAN AVENUE, CIRCLE 2, DHAKA 1212", "BANGLALINK"],
+                ["20004112", "4700021890", "SYLHET ZINDA BAZAR, FASHION HUB", "MAIN ROAD, ZINDA BAZAR, SYLHET 3100", "BANGLALINK"]
             ];
 
             const wsData = [demoHeaders, ...demoRows];
@@ -825,13 +825,13 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
         function getSimBinString(carrierName) {
             const c = String(carrierName || '').trim().toUpperCase();
             if (c.includes('BANGLALINK') || c.includes('BL')) {
-                return "BANGLALINK=1, GRAMEENPHONE=0, ROBI=0, OTHERS=0";
+                return "BANGLALINK=1:GRAMEENPHONE=0:ROBI=0:OTHERS=0";
             } else if (c.includes('GRAMEEN') || c.includes('GP')) {
-                return "BANGLALINK=0, GRAMEENPHONE=1, ROBI=0, OTHERS=0";
+                return "BANGLALINK=0:GRAMEENPHONE=1:ROBI=0:OTHERS=0";
             } else if (c.includes('ROBI')) {
-                return "BANGLALINK=0, GRAMEENPHONE=0, ROBI=1, OTHERS=0";
+                return "BANGLALINK=0:GRAMEENPHONE=0:ROBI=1:OTHERS=0";
             } else {
-                return "BANGLALINK=1, GRAMEENPHONE=0, ROBI=0, OTHERS=0";
+                return "BANGLALINK=1:GRAMEENPHONE=0:ROBI=0:OTHERS=0";
             }
         }
 
@@ -848,31 +848,49 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
             }
         }
 
-        function splitText(text, maxLen) {
-            const str = String(text || '').trim();
-            if (str.length <= maxLen) return [str, ''];
+        // Helper rule function: Clean line if it starts or ends with comma, hyphen, or dash
+        function cleanLineEdges(lineStr) {
+            let s = String(lineStr || '').trim();
+            // Remove leading commas, hyphens, dashes
+            while (/^[,–\-]/.test(s)) {
+                s = s.replace(/^[,–\-]\s*/, '').trim();
+            }
+            // Remove trailing commas, hyphens, dashes
+            while (/[,–\-]$/.test(s)) {
+                s = s.replace(/\s*[,–\-]$/, '').trim();
+            }
+            return s;
+        }
+
+        // Helper rule function: Add space after comma for count of single word and don't break full word
+        function preprocessTextSpacing(rawText) {
+            let text = String(rawText || '').trim();
+            // Ensure space after comma if missing (e.g., "COMPLEX,OUTLET" -> "COMPLEX, OUTLET")
+            text = text.replace(/,([^\s])/g, ', $1');
+            // Clean consecutive spaces
+            text = text.replace(/\s+/g, ' ');
+            return text;
+        }
+
+        function splitText(text, maxLen = 21) {
+            let str = preprocessTextSpacing(text);
+            if (str.length <= maxLen) return [cleanLineEdges(str), ''];
             
             let sub = str.substring(0, maxLen);
             let lastSpace = sub.lastIndexOf(' ');
             
             if (lastSpace > 0) {
-                return [str.substring(0, lastSpace).trim(), str.substring(lastSpace).trim()];
+                let firstPart = cleanLineEdges(str.substring(0, lastSpace));
+                let restPart = str.substring(lastSpace).trim();
+                return [firstPart, restPart];
             } else {
-                // If no space found in maxLen, find next space so we don't break the full word
-                let nextSpace = str.indexOf(' ', maxLen);
-                if (nextSpace !== -1) {
-                    return [str.substring(0, nextSpace).trim(), str.substring(nextSpace).trim()];
-                } else {
-                    return [str, ''];
-                }
+                // If single word exceeds maxLen, do not break full word; fit within limit or move if needed depending on caller
+                return [cleanLineEdges(sub), str.substring(maxLen).trim()];
             }
         }
 
-        function chunkAddress(address, maxLenPerLine = 36, maxTotalChars = 180, hasDbaOverflow = false) {
-            let str = String(address || '').trim();
-            // Automatically add a space after comma if missing
-            str = str.replace(/,(?!\s)/g, ', ');
-
+        function chunkAddress(address, maxLenPerLine = 29, maxTotalChars = 145, hasDbaOverflow = false) {
+            let str = preprocessTextSpacing(address);
             if (str.length > maxTotalChars) {
                 str = str.substring(0, maxTotalChars).trim();
             }
@@ -881,14 +899,18 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
             if (str === '') words = [];
 
             let lines = ['', '', '', '', ''];
-            // Start from line index 0 (ADDR1), unless DBA overflow forced ADDR1 to be used
             let currentLineIdx = hasDbaOverflow ? 1 : 0; 
             
             for (let word of words) {
                 if (currentLineIdx >= 5) {
                     let lastIdx = 4;
                     let testLine = lines[lastIdx] ? lines[lastIdx] + ' ' + word : word;
-                    lines[lastIdx] = testLine;
+                    if (testLine.length <= maxLenPerLine) {
+                        lines[lastIdx] = testLine;
+                    } else {
+                        // Move word to next line / truncate if max lines reached without breaking full word
+                        lines[lastIdx] = testLine.substring(0, maxLenPerLine).trim();
+                    }
                     continue;
                 }
                 
@@ -896,30 +918,20 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                 if (testLine.length <= maxLenPerLine) {
                     lines[currentLineIdx] = testLine;
                 } else {
+                    // Move word to next line entirely without breaking full word
                     currentLineIdx++;
                     if (currentLineIdx >= 5) {
                         let lastIdx = 4;
                         let testLast = lines[lastIdx] ? lines[lastIdx] + ' ' + word : word;
-                        lines[lastIdx] = testLast;
+                        lines[lastIdx] = testLast.length <= maxLenPerLine ? testLast : testLast.substring(0, maxLenPerLine).trim();
                     } else {
                         lines[currentLineIdx] = word;
                     }
                 }
             }
 
-            // Clean up leading/trailing dashes, hyphens, and whitespace on lines 2 through 5
-            for (let i = 0; i < lines.length; i++) {
-                if (lines[i]) {
-                    let cleanedLine;
-                    do {
-                        cleanedLine = lines[i];
-                        // Strip leading/trailing commas, periods, dashes, and whitespace so no line ends or starts with a dangling comma
-                        lines[i] = lines[i].replace(/^[\s,\.\-\–\—_]+/, '').replace(/[\s,\.\-\–\—_]+$/, '');
-                    } while (lines[i] !== cleanedLine);
-                }
-            }
-
-            return lines;
+            // Clean edges of all lines (remove starting/ending commas, hyphens, dashes entirely)
+            return lines.map(line => cleanLineEdges(line));
         }
 
         function generateConfigFile(rowObj) {
@@ -941,12 +953,12 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
             const address = String(rowObj[colAddress] || '').trim();
             const simCarrier = String(rowObj[colSimCarrier] || 'BANGLALINK').trim();
 
-            let [part1, rest1] = splitText(entityName, 24);
+            let [part1, rest1] = splitText(entityName, 21);
             let [dba1, dba2] = [part1, ''];
             let dbaOverflow = '';
 
             if (rest1.length > 0) {
-                let [part2, rest2] = splitText(rest1, 28);
+                let [part2, rest2] = splitText(rest1, 21);
                 dba2 = part2;
                 if (rest2.length > 0) {
                     dbaOverflow = rest2;
@@ -955,7 +967,7 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
 
             const hasDbaOverflow = dbaOverflow.length > 0;
 
-            let [addr1, addr2, addr3, addr4, addr5] = chunkAddress(address, 36, 180, hasDbaOverflow);
+            let [addr1, addr2, addr3, addr4, addr5] = chunkAddress(address, 29, 145, hasDbaOverflow);
             if (hasDbaOverflow) {
                 addr1 = dbaOverflow;
             }
@@ -980,17 +992,6 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
             text = text.replace(/\(simbin\)/g, simbinStr);
             text = text.replace(/\(emiStatus\)/g, tidEmi);
             text = text.replace(/\(tenor\)/g, globalTenor);
-
-            // Clean up lines: remove trailing commas, periods, and unneeded punctuation on every line
-            let lines = text.split('\n');
-            lines = lines.map(line => {
-                let trimmed = line.trim();
-                while (trimmed.endsWith(',') || trimmed.endsWith('.') || trimmed.endsWith('-') || trimmed.endsWith(';') || trimmed.endsWith(' ')) {
-                    trimmed = trimmed.replace(/[, \.\-\;]+$/, '').trim();
-                }
-                return trimmed;
-            });
-            text = lines.join('\n');
 
             return { tid, text, emiStatus: tidEmi };
         }
@@ -1021,18 +1022,18 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                 const generated = generateConfigFile(r);
                 const isEmiActive = generated.emiStatus === 1;
 
-                let [p1, r1] = splitText(entity, 24);
+                let [p1, r1] = splitText(entity, 21);
                 let d1 = p1, d2 = '';
                 let dbaOverflow = '';
                 if (r1.length > 0) {
-                    let [p2, r2] = splitText(r1, 28);
+                    let [p2, r2] = splitText(r1, 21);
                     d2 = p2;
                     if (r2.length > 0) {
                         dbaOverflow = r2;
                     }
                 }
                 const hasDbaOverflow = dbaOverflow.length > 0;
-                let [a1, a2, a3, a4, a5] = chunkAddress(addr, 36, 180, hasDbaOverflow);
+                let [a1, a2, a3, a4, a5] = chunkAddress(addr, 29, 145, hasDbaOverflow);
                 if (hasDbaOverflow) {
                     a1 = dbaOverflow;
                 }
@@ -1066,7 +1067,7 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                     <td class="py-3 px-3 align-top font-mono text-[11px]">
                         <div class="text-emerald-400 font-medium">MN1: ${d1 || '-'}</div>
                         <div class="text-emerald-400 font-medium mb-1">MN2: ${d2 || '-'}</div>
-                        ${hasDbaOverflow ? '<div class="inline-flex items-center space-x-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[9px] px-1.5 py-0.5 rounded"><i class="fa-solid fa-arrow-right"></i><span>DBA Overflow → ADDR1</span></div>' : ''}
+                        ${hasDbaOverflow ? '<div class="inline-flex items-center space-x-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[9px] px-1.5 py-0.5 rounded"><i class="fa-solid fa-arrow-right"></i><span>DBA Overflow (&gt;42c) → ADDR1</span></div>' : ''}
                     </td>
 
                     <td class="py-3 px-3 align-top font-mono text-[11px] text-slate-300 space-y-0.5">
