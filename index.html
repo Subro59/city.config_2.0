@@ -884,7 +884,7 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                 let restPart = str.substring(lastSpace).trim();
                 return [firstPart, restPart];
             } else {
-                // If single word exceeds maxLen, do not break full word; fit within limit or move if needed depending on caller
+                // If single word exceeds maxLen, fit within limit or move if needed
                 return [cleanLineEdges(sub), str.substring(maxLen).trim()];
             }
         }
@@ -908,7 +908,6 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                     if (testLine.length <= maxLenPerLine) {
                         lines[lastIdx] = testLine;
                     } else {
-                        // Move word to next line / truncate if max lines reached without breaking full word
                         lines[lastIdx] = testLine.substring(0, maxLenPerLine).trim();
                     }
                     continue;
@@ -918,7 +917,6 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                 if (testLine.length <= maxLenPerLine) {
                     lines[currentLineIdx] = testLine;
                 } else {
-                    // Move word to next line entirely without breaking full word
                     currentLineIdx++;
                     if (currentLineIdx >= 5) {
                         let lastIdx = 4;
@@ -930,7 +928,6 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                 }
             }
 
-            // Clean edges of all lines (remove starting/ending commas, hyphens, dashes entirely)
             return lines.map(line => cleanLineEdges(line));
         }
 
@@ -983,7 +980,7 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
             text = text.replace(/\(tid\)/g, tid);
             text = text.replace(/\(mid\)/g, mid);
             text = text.replace(/\(dbaname1\)/g, dba1);
-            text = text.replace(/\(dbaname2\)/g, hasDbaOverflow ? '' : dba2); 
+            text = text.replace(/\(dbaname2\)/g, dba2); // Fixed: Fill DBA 2 properly regardless of overflow
             text = text.replace(/\(address1\)/g, addr1);
             text = text.replace(/\(address2\)/g, addr2);
             text = text.replace(/\(address3\)/g, addr3);
@@ -1238,6 +1235,7 @@ OTHERS:HISTORYMAXDAYS=180:BACKHOMETIMEOUT=5:QRDISPLAYTIMEOUT=30`;
                 showToast("Failed to copy configuration.", true);
             }
             document.body.removeChild(textarea);
+        updateZipButtonState();
         }
 
         function updateZipButtonState() {
